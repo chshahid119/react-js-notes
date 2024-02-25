@@ -1,1 +1,1 @@
-All notes for React JS with Notes
+All notes for React JS with projects
