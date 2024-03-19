@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 
-const QuizContextHook = createContext();
+const QuizContext = createContext();
 const SECS_PER_QUESTION = 30;
 const initalState = {
   questions: [],
@@ -80,7 +80,7 @@ function QuizProvider({ children }) {
   }, []);
 
   return (
-    <QuizContextHook.Provider
+    <QuizContext.Provider
       value={{
         questions,
         status,
@@ -95,12 +95,12 @@ function QuizProvider({ children }) {
       }}
     >
       {children}
-    </QuizContextHook.Provider>
+    </QuizContext.Provider>
   );
 }
 
 function useQuiz() {
-  const context = useContext(QuizContextHook);
+  const context = useContext(QuizContext);
   if (context === undefined)
     throw new Error(
       "The QuizContext Value was Used outside of Context Provider"
