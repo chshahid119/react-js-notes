@@ -17,11 +17,12 @@ function AccountOperations() {
     isLoading,
   } = useSelector((store) => store.account);
 
+  console.log(currentLoan);
+
   function handleDeposit() {
     if (!depositAmount) return;
 
     dispatch(deposit(depositAmount, currency));
-    // dispatch(deposit(depositAmount));
     setDepositAmount("");
     setCurrency("USD");
   }
@@ -42,6 +43,7 @@ function AccountOperations() {
     if (!currentLoan) return;
     dispatch(payLoan());
   }
+  console.log(currentLoan);
 
   return (
     <div>
